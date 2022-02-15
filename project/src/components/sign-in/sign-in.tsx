@@ -9,10 +9,10 @@ function SignIn(): JSX.Element {
   return (
     <div className="user-page">
       <Header classes={['user-page__head']}>
-        <h1 className="page-title  user-page__title">Sign in</h1>
+        <h1 className="page-title user-page__title">Sign in</h1>
       </Header>
 
-      <div className="sign-in  user-page__content">
+      <div className="sign-in user-page__content">
         <Form classes={['sign-in__form']}>
           {
             errorMessage &&

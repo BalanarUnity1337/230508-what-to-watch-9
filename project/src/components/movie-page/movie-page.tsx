@@ -11,7 +11,7 @@ function MoviePage(): JSX.Element {
       </FilmCardFull>
 
       <div className="page-content">
-        <section className="catalog  catalog--like-this">
+        <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
           <CatalogFilms films={new Array(4).fill(0)} />

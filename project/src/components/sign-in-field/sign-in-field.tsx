@@ -15,7 +15,7 @@ function SignInField({id, name, label, placeholder, type, error}: SignInFieldPro
   return (
     <div className={`sign-in__field ${errorClassName}`}>
       <input className="sign-in__input" type={type} placeholder={placeholder} name={name} id={id} />
-      <label className="sign-in__label  visually-hidden" htmlFor={id}>{label}</label>
+      <label className="sign-in__label visually-hidden" htmlFor={id}>{label}</label>
     </div>
   );
 }
