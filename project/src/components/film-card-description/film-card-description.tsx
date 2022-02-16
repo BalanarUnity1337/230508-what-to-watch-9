@@ -1,7 +1,4 @@
-import Button from '../button/button';
-import IconPlayS from '../icons/icon-play-s/icon-play-s';
-import IconAdd from '../icons/icon-add/icon-add';
-import IconInList from '../icons/icon-in-list/icon-in-list';
+import {IconAdd, IconInList, IconPlayS} from '../icons';
 
 type FilmCardDescriptionProps = {
   title: string
@@ -11,7 +8,7 @@ type FilmCardDescriptionProps = {
 }
 
 function FilmCardDescription({title, genre, year, withReviewButton}: FilmCardDescriptionProps): JSX.Element {
-  const isFavorite = false; // Потом будем брать из объекта фильма, поэтому не стал выносить в props
+  const isFavorite = false;
 
   return (
     <div className="film-card__desc">
@@ -25,19 +22,23 @@ function FilmCardDescription({title, genre, year, withReviewButton}: FilmCardDes
       </p>
 
       <div className="film-card__buttons">
-        <Button icon={IconPlayS()} classes={['btn--play', 'film-card__button']}>
-          Play
-        </Button>
+        <button className="btn btn--play film-card__button">
+          <IconPlayS />
 
-        <Button icon={isFavorite ? IconInList() : IconAdd()} classes={['btn--list', 'film-card__button']}>
-          My list
-        </Button>
+          <span>Play</span>
+        </button>
+
+        <button className="btn btn--list film-card__button">
+          {isFavorite ? <IconInList /> : <IconAdd />}
+
+          <span>My list</span>
+        </button>
 
         {
           withReviewButton &&
-          <Button classes={['film-card__button']}>
-            Add review
-          </Button>
+          <button className="btn film-card__button">
+            <span>Add review</span>
+          </button>
         }
       </div>
     </div>

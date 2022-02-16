@@ -4,7 +4,7 @@ import RatingScale from '../rating-scale/rating-scale';
 function AddReview(): JSX.Element {
   return (
     <div className="add-review">
-      <Form classes={['add-review__form']}>
+      <Form classes="add-review__form">
         <RatingScale />
 
         <div className="add-review__text">

@@ -1,13 +1,12 @@
 import Main from '../main/main';
+import {PromoFilm} from '../../types/film';
 
 type AppProps = {
-  title: string
-  genre: string
-  year: number
+  promoFilm: PromoFilm
 }
 
-function App({title, genre, year}: AppProps): JSX.Element {
-  return <Main title={title} genre={genre} year={year} />;
+function App({promoFilm}: AppProps): JSX.Element {
+  return <Main promoFilm={promoFilm} />;
 }
 
 export default App;

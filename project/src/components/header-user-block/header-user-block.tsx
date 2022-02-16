@@ -1,5 +1,5 @@
 function HeaderUserBlock(): JSX.Element {
-  const isLoggedIn = true; // Будем брать из стора
+  const isLoggedIn = true;
 
   if (isLoggedIn) {
     return (

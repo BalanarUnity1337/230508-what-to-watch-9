@@ -1,6 +1,4 @@
-import IconPlayS from '../icons/icon-play-s/icon-play-s';
-import IconFullScreen from '../icons/icon-full-screen/icon-full-screen';
-import IconPause from '../icons/icon-pause/icon-pause';
+import {IconFullScreen, IconPause, IconPlayS} from '../icons';
 
 function Player(): JSX.Element {
   const isPaused = false;

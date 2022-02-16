@@ -1,4 +1,5 @@
 import {HTMLInputTypeAttribute} from 'react';
+import {mergeClasses} from '../../shared/lib';
 
 type SignInFieldProps = {
   id: string
@@ -10,10 +11,12 @@ type SignInFieldProps = {
 }
 
 function SignInField({id, name, label, placeholder, type, error}: SignInFieldProps): JSX.Element {
-  const errorClassName: string = error ? 'sign-in__field--error' : '';
-
   return (
-    <div className={`sign-in__field ${errorClassName}`}>
+    <div
+      className={mergeClasses({
+        'sign-in__field--error': error,
+      }, 'sign-in__field')}
+    >
       <input className="sign-in__input" type={type} placeholder={placeholder} name={name} id={id} />
       <label className="sign-in__label visually-hidden" htmlFor={id}>{label}</label>
     </div>

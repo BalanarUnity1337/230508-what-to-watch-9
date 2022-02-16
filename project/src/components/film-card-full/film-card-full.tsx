@@ -8,14 +8,15 @@ type FilmCardFullProps = PropsWithChildren<{
   title: string
   genre: string
   year: number
-  activeTab: 'overview' | 'details' | 'reviews' // Временный пропс для тестирования компонента
+  // FIXME: Временный пропс для тестирования компонента
+  activeTab: 'overview' | 'details' | 'reviews'
 }>
 
 function FilmCardFull({title, genre, year, children, activeTab}: FilmCardFullProps): JSX.Element {
   const tabs: Record<FilmCardFullProps['activeTab'], JSX.Element> = {
-    overview: FilmCardOverview(),
-    details: FilmCardDetails(),
-    reviews: FilmCardReviews(),
+    overview: <FilmCardOverview />,
+    details: <FilmCardDetails />,
+    reviews: <FilmCardReviews />,
   };
 
   return (

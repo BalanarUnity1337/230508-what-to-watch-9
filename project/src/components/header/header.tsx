@@ -1,18 +1,17 @@
 import {PropsWithChildren} from 'react';
 import Logo from '../logo/logo';
 import HeaderUserBlock from '../header-user-block/header-user-block';
-import mergeClasses from '../../utils/mergeClasses';
+import {mergeClasses} from '../../shared/lib';
 
 type HeaderProps = PropsWithChildren<{
-  classes?: string[]
+  classes?: string
 }>
 
 function Header({classes, children}: HeaderProps): JSX.Element {
-  const innerClassName: string = mergeClasses(classes, 'page-header');
-  const isLoggedIn = true; // Будем брать из стора
+  const isLoggedIn = true;
 
   return (
-    <header className={innerClassName}>
+    <header className={mergeClasses(classes, 'page-header')}>
       <Logo />
 
       {children}
