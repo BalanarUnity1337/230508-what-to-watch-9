@@ -1,6 +1,6 @@
-import AddReview from '../add-review/add-review';
-import Header from '../header/header';
-import Breadcrumbs from '../breadcrumbs/breadcrumbs';
+import AddReviewForm from '../../components/add-review-form/add-review-form';
+import Header from '../../components/header/header';
+import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 
 function AddReviewPage(): JSX.Element {
   return (
@@ -21,7 +21,7 @@ function AddReviewPage(): JSX.Element {
         </div>
       </div>
 
-      <AddReview />
+      <AddReviewForm />
     </section>
   );
 }

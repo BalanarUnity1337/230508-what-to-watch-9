@@ -1,18 +1,18 @@
-import Footer from '../footer/footer';
-import FilmCardPromo from '../film-card-promo/film-card-promo';
-import Header from '../header/header';
-import CatalogGenres from '../catalog-genres/catalog-genres';
-import FilmCatalog from '../film-catalog/film-catalog';
+import Footer from '../../components/footer/footer';
+import FilmCardPromo from '../../components/film-card-promo/film-card-promo';
+import Header from '../../components/header/header';
+import GenresCatalog from '../../components/genres-catalog/genres-catalog';
+import FilmCatalog from '../../components/film-catalog/film-catalog';
 import {PromoFilm} from '../../types/film';
 
-type MainProps = {
+type MainPageProps = {
   promoFilm: PromoFilm
 }
 
-function Main({promoFilm}: MainProps): JSX.Element {
+function MainPage({promoFilm}: MainPageProps): JSX.Element {
   return (
     <>
-      <FilmCardPromo title={promoFilm.title} genre={promoFilm.genre} year={promoFilm.year}>
+      <FilmCardPromo {...promoFilm}>
         <Header classes="film-card__head" />
       </FilmCardPromo>
 
@@ -20,7 +20,7 @@ function Main({promoFilm}: MainProps): JSX.Element {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <CatalogGenres/>
+          <GenresCatalog/>
 
           <FilmCatalog films={[...new Array(20).keys()]}/>
 
@@ -35,4 +35,4 @@ function Main({promoFilm}: MainProps): JSX.Element {
   );
 }
 
-export default Main;
+export default MainPage;

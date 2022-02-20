@@ -1,7 +1,7 @@
 import Form from '../form/form';
 import RatingScale from '../rating-scale/rating-scale';
 
-function AddReview(): JSX.Element {
+function AddReviewForm(): JSX.Element {
   return (
     <div className="add-review">
       <Form classes="add-review__form">
@@ -19,4 +19,4 @@ function AddReview(): JSX.Element {
   );
 }
 
-export default AddReview;
+export default AddReviewForm;

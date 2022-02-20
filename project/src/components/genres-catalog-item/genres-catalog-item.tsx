@@ -1,11 +1,11 @@
 import {mergeClasses} from '../../shared/lib';
 
-type CatalogGenresItemProps = {
+type GenresCatalogItemProps = {
   name: string
   active?: boolean
 }
 
-function CatalogGenresItem({name, active}: CatalogGenresItemProps): JSX.Element {
+function GenresCatalogItem({name, active}: GenresCatalogItemProps): JSX.Element {
   return (
     <li
       className={mergeClasses({
@@ -20,4 +20,4 @@ function CatalogGenresItem({name, active}: CatalogGenresItemProps): JSX.Element 
   );
 }
 
-export default CatalogGenresItem;
+export default GenresCatalogItem;

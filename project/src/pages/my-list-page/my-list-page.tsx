@@ -1,8 +1,8 @@
-import Header from '../header/header';
-import FilmCatalog from '../film-catalog/film-catalog';
-import Footer from '../footer/footer';
+import Header from '../../components/header/header';
+import FilmCatalog from '../../components/film-catalog/film-catalog';
+import Footer from '../../components/footer/footer';
 
-function MyList(): JSX.Element {
+function MyListPage(): JSX.Element {
   return (
     <div className="user-page">
       <Header classes="user-page__head">
@@ -20,4 +20,4 @@ function MyList(): JSX.Element {
   );
 }
 
-export default MyList;
+export default MyListPage;
