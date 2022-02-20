@@ -1,4 +1,5 @@
 import {PropsWithChildren} from 'react';
+import {Link} from 'react-router-dom';
 import FilmCardOverview from '../film-card-overview/film-card-overview';
 import FilmCardDetails from '../film-card-details/film-card-details';
 import FilmCardReviews from '../film-card-reviews/film-card-reviews';
@@ -45,21 +46,21 @@ function FilmCardFull({title, genre, year, children, activeTab}: FilmCardFullPro
             <nav className="film-nav film-card__nav">
               <ul className="film-nav__list">
                 <li className={`film-nav__item  ${activeTab === 'overview' ? 'film-nav__item--active' : ''}`}>
-                  <a href="#" className="film-nav__link">
+                  <Link className="film-nav__link" to="#overview">
                     Overview
-                  </a>
+                  </Link>
                 </li>
 
                 <li className={`film-nav__item  ${activeTab === 'details' ? 'film-nav__item--active' : ''}`}>
-                  <a href="#" className="film-nav__link">
+                  <Link className="film-nav__link" to="#details">
                     Details
-                  </a>
+                  </Link>
                 </li>
 
                 <li className={`film-nav__item  ${activeTab === 'reviews' ? 'film-nav__item--active' : ''}`}>
-                  <a href="#" className="film-nav__link">
+                  <Link className="film-nav__link" to="#reviews">
                     Reviews
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

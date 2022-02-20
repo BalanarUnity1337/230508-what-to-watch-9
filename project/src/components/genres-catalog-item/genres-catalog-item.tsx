@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import {mergeClasses} from '../../shared/lib';
 
 type GenresCatalogItemProps = {
@@ -13,9 +14,9 @@ function GenresCatalogItem({name, active}: GenresCatalogItemProps): JSX.Element 
       },
       'catalog__genres-item')}
     >
-      <a href="#" className="catalog__genres-link">
+      <Link className="catalog__genres-link" to={`?genre=${name}`}>
         {name}
-      </a>
+      </Link>
     </li>
   );
 }
