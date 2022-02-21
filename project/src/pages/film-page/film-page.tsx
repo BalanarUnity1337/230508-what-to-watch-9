@@ -1,9 +1,9 @@
-import Footer from '../footer/footer';
-import FilmCatalog from '../film-catalog/film-catalog';
-import Header from '../header/header';
-import FilmCardFull from '../film-card-full/film-card-full';
+import Footer from '../../components/footer/footer';
+import FilmCatalog from '../../components/film-catalog/film-catalog';
+import Header from '../../components/header/header';
+import FilmCardFull from '../../components/film-card-full/film-card-full';
 
-function MoviePage(): JSX.Element {
+function FilmPage(): JSX.Element {
   return (
     <>
       <FilmCardFull title="The Grand Budapest Hotel" genre="Drama" year={2014} activeTab="overview">
@@ -23,4 +23,4 @@ function MoviePage(): JSX.Element {
   );
 }
 
-export default MoviePage;
+export default FilmPage;

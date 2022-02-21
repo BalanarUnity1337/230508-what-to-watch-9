@@ -1,9 +1,9 @@
-import Footer from '../footer/footer';
-import Header from '../header/header';
-import Form from '../form/form';
-import SignInField from '../sign-in-field/sign-in-field';
+import Footer from '../../components/footer/footer';
+import Header from '../../components/header/header';
+import Form from '../../components/form/form';
+import SignInField from '../../components/sign-in-field/sign-in-field';
 
-function SignIn(): JSX.Element {
+function SignInPage(): JSX.Element {
   const errorMessage = '';
 
   return (
@@ -38,4 +38,4 @@ function SignIn(): JSX.Element {
   );
 }
 
-export default SignIn;
+export default SignInPage;

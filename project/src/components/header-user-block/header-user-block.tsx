@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../shared/lib';
+
 function HeaderUserBlock(): JSX.Element {
   const isLoggedIn = true;
 
@@ -19,7 +22,7 @@ function HeaderUserBlock(): JSX.Element {
 
   return (
     <div className="user-block">
-      <a className="user-block__link" href="#">Sign in</a>
+      <Link className="user-block__link" to={AppRoute.SignIn}>Sign in</Link>
     </div>
   );
 }

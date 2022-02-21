@@ -1,6 +1,6 @@
-import {IconFullScreen, IconPause, IconPlayS} from '../icons';
+import {IconFullScreen, IconPause, IconPlayS} from '../../components/icons';
 
-function Player(): JSX.Element {
+function PlayerPage(): JSX.Element {
   const isPaused = false;
 
   return (
@@ -47,4 +47,4 @@ function Player(): JSX.Element {
   );
 }
 
-export default Player;
+export default PlayerPage;

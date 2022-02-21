@@ -1,5 +1,4 @@
 import {PropsWithChildren} from 'react';
-import {mergeClasses} from '../../shared/lib';
 
 type FormProps = PropsWithChildren<{
   classes?: string
@@ -7,7 +6,7 @@ type FormProps = PropsWithChildren<{
 
 function Form({classes, children}: FormProps): JSX.Element {
   return (
-    <form action="#" className={mergeClasses(classes)}>
+    <form action="#" className={classes}>
       {children}
     </form>
   );
