@@ -1,22 +1,31 @@
-import Review from '../review/review';
+import ReviewCard from '../review/reviewCard';
+import {Review} from '../../types/review';
 
-function FilmCardReviews(): JSX.Element {
+type FilmCardReviewsProps = {
+  reviews: Review[]
+}
+
+function FilmCardReviews({reviews}: FilmCardReviewsProps): JSX.Element {
+  const columnOne: Review[] = [];
+  const columnTwo: Review[] = [];
+
+  reviews.forEach((review, index) => {
+    if (index % 2 === 0) {
+      columnOne.push(review);
+    } else {
+      columnTwo.push(review);
+    }
+  });
+
   return (
     <div className="film-card__reviews film-card__row">
+
       <div className="film-card__reviews-col">
-        <Review />
-
-        <Review />
-
-        <Review />
+        {columnOne.map((review) => <ReviewCard review={review} key={review.id} />)}
       </div>
 
       <div className="film-card__reviews-col">
-        <Review />
-
-        <Review />
-
-        <Review />
+        {columnTwo.map((review) => <ReviewCard review={review} key={review.id} />)}
       </div>
     </div>
   );

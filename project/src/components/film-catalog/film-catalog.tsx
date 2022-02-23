@@ -1,17 +1,31 @@
+import {useState} from 'react';
 import FilmCard from '../film-card/film-card';
+import {Film} from '../../types/film';
 
 type FilmCatalogProps = {
-  // FIXME: Временное решение до интеграции с API
-  films: number[]
+  films: Film[]
 }
 
 function FilmCatalog({films}: FilmCatalogProps): JSX.Element {
-  const filmCards: JSX.Element[] = films
-    .map((item) => <FilmCard key={item} />);
+  const [, setActiveFilm] = useState<Film | null>(null);
+
+  const mouseOverHandler = (film: Film) => {
+    setActiveFilm(film);
+  };
+
+  const mouseOutHandler = () => {
+    setActiveFilm(null);
+  };
 
   return (
     <div className="catalog__films-list">
-      {filmCards}
+      {films.map((film) => (
+        <FilmCard
+          key={film.id}
+          film={film}
+          onMouseOver={mouseOverHandler}
+          onMouseOut={mouseOutHandler}
+        />))}
     </div>
   );
 }

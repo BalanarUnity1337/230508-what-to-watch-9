@@ -1,15 +1,31 @@
-import {Link} from 'react-router-dom';
+import {MouseEvent} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {Film} from '../../types/film';
+import {createFilmRoute} from '../../shared/lib/routing';
 
-function FilmCard(): JSX.Element {
+type FilmCardProps = {
+  film: Film
+  onMouseOver: (film: Film) => void
+  onMouseOut: () => void
+}
+
+function FilmCard({film, onMouseOver, onMouseOut}: FilmCardProps): JSX.Element {
+  const navigate = useNavigate();
+
   return (
-    <article className="small-film-card catalog__films-card">
+    <article
+      className="small-film-card catalog__films-card"
+      onMouseOver={() => onMouseOver(film)}
+      onMouseOut={onMouseOut}
+      onClick={() => navigate(createFilmRoute(film.id))}
+    >
       <div className="small-film-card__image">
-        <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
+        <img src={film.previewImage} alt={film.name} width="280" height="175" />
       </div>
 
-      <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to="#todo">
-          Fantastic Beasts: The Crimes of Grindelwald
+      <h3 className="small-film-card__title" onClick={(e: MouseEvent<HTMLHeadingElement>) => e.stopPropagation()}>
+        <Link className="small-film-card__link" to={createFilmRoute(film.id)}>
+          {film.name}
         </Link>
       </h3>
     </article>

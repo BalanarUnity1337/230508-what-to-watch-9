@@ -1,11 +1,16 @@
 import {IconFullScreen, IconPause, IconPlayS} from '../../components/icons';
+import {Film} from '../../types/film';
 
-function PlayerPage(): JSX.Element {
+type PlayerPageProps = {
+  film: Film
+}
+
+function PlayerPage({film} : PlayerPageProps): JSX.Element {
   const isPaused = false;
 
   return (
     <div className="player">
-      <video className="player__video" src="#" poster="img/player-poster.jpg" />
+      <video className="player__video" src={film.videoLink} poster={film.posterImage} />
 
       <button className="player__exit" type="button">Exit</button>
 
@@ -34,7 +39,7 @@ function PlayerPage(): JSX.Element {
             <span>{isPaused ? 'Play' : 'Pause'}</span>
           </button>
 
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{film.name}</div>
 
           <button className="player__full-screen" type="button">
             <IconFullScreen />

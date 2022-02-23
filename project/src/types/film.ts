@@ -1,9 +1,3 @@
-export interface PromoFilm {
-  title: string
-  genre: string
-  year: number
-}
-
 export interface Film {
   id: number
   name: string

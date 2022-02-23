@@ -1,24 +1,21 @@
 import {IconAdd, IconInList, IconPlayS} from '../icons';
+import {Film} from '../../types/film';
 
 type FilmCardDescriptionProps = {
-  title: string
-  genre: string
-  year: number
+  film: Film
   withReviewButton?: boolean
 }
 
-function FilmCardDescription({title, genre, year, withReviewButton}: FilmCardDescriptionProps): JSX.Element {
-  const isFavorite = false;
-
+function FilmCardDescription({film, withReviewButton}: FilmCardDescriptionProps): JSX.Element {
   return (
     <div className="film-card__desc">
       <h2 className="film-card__title">
-        {title}
+        {film.name}
       </h2>
 
       <p className="film-card__meta">
-        <span className="film-card__genre">{genre}</span>
-        <span className="film-card__year">{year}</span>
+        <span className="film-card__genre">{film.genre}</span>
+        <span className="film-card__year">{film.released}</span>
       </p>
 
       <div className="film-card__buttons">
@@ -29,7 +26,7 @@ function FilmCardDescription({title, genre, year, withReviewButton}: FilmCardDes
         </button>
 
         <button className="btn btn--list film-card__button">
-          {isFavorite ? <IconInList /> : <IconAdd />}
+          {film.isFavorite ? <IconInList /> : <IconAdd />}
 
           <span>My list</span>
         </button>

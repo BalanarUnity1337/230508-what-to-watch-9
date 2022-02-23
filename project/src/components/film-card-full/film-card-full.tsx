@@ -4,27 +4,33 @@ import FilmCardOverview from '../film-card-overview/film-card-overview';
 import FilmCardDetails from '../film-card-details/film-card-details';
 import FilmCardReviews from '../film-card-reviews/film-card-reviews';
 import FilmCardDescription from '../film-card-description/film-card-description';
+import {Film} from '../../types/film';
+import {Review} from '../../types/review';
 
 type FilmCardFullProps = PropsWithChildren<{
-  title: string
-  genre: string
-  year: number
+  film: Film
+  reviews: Review[]
   // FIXME: Временный пропс для тестирования компонента
   activeTab: 'overview' | 'details' | 'reviews'
 }>
 
-function FilmCardFull({title, genre, year, children, activeTab}: FilmCardFullProps): JSX.Element {
+function FilmCardFull({film, reviews, children, activeTab}: FilmCardFullProps): JSX.Element {
   const tabs: Record<FilmCardFullProps['activeTab'], JSX.Element> = {
     overview: <FilmCardOverview />,
     details: <FilmCardDetails />,
-    reviews: <FilmCardReviews />,
+    reviews: <FilmCardReviews reviews={reviews} />,
   };
 
   return (
-    <section className="film-card film-card--full">
+    <section
+      className="film-card film-card--full"
+      style={{
+        backgroundColor: film.backgroundColor,
+      }}
+    >
       <div className="film-card__hero">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={film.backgroundImage} alt={film.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -32,14 +38,14 @@ function FilmCardFull({title, genre, year, children, activeTab}: FilmCardFullPro
         {children}
 
         <div className="film-card__wrap">
-          <FilmCardDescription title={title} genre={genre} year={year} withReviewButton />
+          <FilmCardDescription film={film} withReviewButton />
         </div>
       </div>
 
       <div className="film-card__wrap film-card__translate-top">
         <div className="film-card__info">
           <div className="film-card__poster film-card__poster--big">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+            <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327" />
           </div>
 
           <div className="film-card__desc">
