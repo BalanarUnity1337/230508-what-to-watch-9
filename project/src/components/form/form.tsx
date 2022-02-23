@@ -1,4 +1,4 @@
-import {PropsWithChildren} from 'react';
+import {FormEvent, PropsWithChildren} from 'react';
 
 type FormProps = PropsWithChildren<{
   classes?: string
@@ -6,7 +6,7 @@ type FormProps = PropsWithChildren<{
 
 function Form({classes, children}: FormProps): JSX.Element {
   return (
-    <form action="#" className={classes}>
+    <form action="#" className={classes} onSubmit={(e: FormEvent) => e.preventDefault()}>
       {children}
     </form>
   );
