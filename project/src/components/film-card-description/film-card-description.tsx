@@ -1,5 +1,7 @@
+import {useNavigate} from 'react-router-dom';
 import {IconAdd, IconInList, IconPlayS} from '../icons';
 import {Film} from '../../types/film';
+import {createAddReviewRoute} from '../../shared/lib/routing';
 
 type FilmCardDescriptionProps = {
   film: Film
@@ -7,6 +9,8 @@ type FilmCardDescriptionProps = {
 }
 
 function FilmCardDescription({film, withReviewButton}: FilmCardDescriptionProps): JSX.Element {
+  const navigate = useNavigate();
+
   return (
     <div className="film-card__desc">
       <h2 className="film-card__title">
@@ -33,7 +37,7 @@ function FilmCardDescription({film, withReviewButton}: FilmCardDescriptionProps)
 
         {
           withReviewButton &&
-          <button className="btn film-card__button">
+          <button className="btn film-card__button" onClick={() => navigate(createAddReviewRoute(film.id))}>
             <span>Add review</span>
           </button>
         }

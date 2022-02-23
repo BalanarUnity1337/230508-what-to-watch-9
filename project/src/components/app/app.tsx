@@ -37,7 +37,7 @@ function App({promoFilm, films, reviews}: AppProps): JSX.Element {
 
           <Route path={AppRoute.AddReview} element={
             <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <AddReviewPage />
+              <AddReviewPage films={films} />
             </PrivateRoute>
           }
           />

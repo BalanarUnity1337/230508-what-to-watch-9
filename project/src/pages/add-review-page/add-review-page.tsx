@@ -1,13 +1,31 @@
+import {useParams, Navigate} from 'react-router-dom';
 import AddReviewForm from '../../components/add-review-form/add-review-form';
 import Header from '../../components/header/header';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
+import {Film} from '../../types/film';
 
-function AddReviewPage(): JSX.Element {
+type AddReviewPageProps = {
+  films: Film[]
+}
+
+function AddReviewPage({films}: AddReviewPageProps): JSX.Element {
+  const params = useParams();
+  const film: Film | null = films.find((item) => item.id === Number(params.id)) || null;
+
+  if (!film) {
+    return (<Navigate to="/404" />);
+  }
+
   return (
-    <section className="film-card film-card--full">
+    <section
+      className="film-card film-card--full"
+      style={{
+        backgroundColor: film.backgroundColor,
+      }}
+    >
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={film.backgroundImage} alt={film.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -17,7 +35,7 @@ function AddReviewPage(): JSX.Element {
         </Header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+          <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327" />
         </div>
       </div>
 
