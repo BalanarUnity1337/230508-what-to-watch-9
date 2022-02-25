@@ -5,12 +5,12 @@ import GenresCatalog from '../../components/genres-catalog/genres-catalog';
 import FilmCatalog from '../../components/film-catalog/film-catalog';
 import {Film} from '../../types/film';
 
-type MainPageProps = {
+type Props = {
   promoFilm: Film
   films: Film[]
 }
 
-function MainPage({promoFilm, films}: MainPageProps): JSX.Element {
+function MainPage({promoFilm, films}: Props): JSX.Element {
   return (
     <>
       <FilmCardPromo film={promoFilm}>

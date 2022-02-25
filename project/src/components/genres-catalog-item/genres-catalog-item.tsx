@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom';
 import {mergeClasses} from '../../shared/lib';
 
-type GenresCatalogItemProps = {
+type Props = {
   name: string
+  label: string
   active?: boolean
 }
 
-function GenresCatalogItem({name, active}: GenresCatalogItemProps): JSX.Element {
+function GenresCatalogItem({name, label, active}: Props): JSX.Element {
   return (
     <li
       className={mergeClasses({
@@ -14,8 +15,8 @@ function GenresCatalogItem({name, active}: GenresCatalogItemProps): JSX.Element 
       },
       'catalog__genres-item')}
     >
-      <Link className="catalog__genres-link" to={`?genre=${name}`}>
-        {name}
+      <Link className="catalog__genres-link" to={`?genre=${name}`} replace>
+        {label}
       </Link>
     </li>
   );

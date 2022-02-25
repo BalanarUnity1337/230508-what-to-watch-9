@@ -6,12 +6,12 @@ import FilmCardFull from '../../components/film-card-full/film-card-full';
 import {Film} from '../../types/film';
 import {Review} from '../../types/review';
 
-type FilmPageProps = {
+type Props = {
   films: Film[]
   reviews: Review[]
 }
 
-function FilmPage({films, reviews}: FilmPageProps): JSX.Element {
+function FilmPage({films, reviews}: Props): JSX.Element {
   const params = useParams();
   const film: Film | null = films.find((item) => item.id === Number(params.id)) || null;
 
@@ -21,7 +21,7 @@ function FilmPage({films, reviews}: FilmPageProps): JSX.Element {
 
   return (
     <>
-      <FilmCardFull film={film} reviews={reviews} activeTab="reviews">
+      <FilmCardFull film={film} reviews={reviews}>
         <Header classes="film-card__head" />
       </FilmCardFull>
 

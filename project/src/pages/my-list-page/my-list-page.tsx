@@ -3,11 +3,11 @@ import FilmCatalog from '../../components/film-catalog/film-catalog';
 import Footer from '../../components/footer/footer';
 import {Film} from '../../types/film';
 
-type MyListPageProps = {
+type Props = {
   films: Film[]
 }
 
-function MyListPage({films}: MyListPageProps): JSX.Element {
+function MyListPage({films}: Props): JSX.Element {
   return (
     <div className="user-page">
       <Header classes="user-page__head">

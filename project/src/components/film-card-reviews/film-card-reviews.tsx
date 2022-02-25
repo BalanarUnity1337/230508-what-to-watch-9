@@ -1,11 +1,11 @@
 import ReviewCard from '../review/reviewCard';
 import {Review} from '../../types/review';
 
-type FilmCardReviewsProps = {
+type Props = {
   reviews: Review[]
 }
 
-function FilmCardReviews({reviews}: FilmCardReviewsProps): JSX.Element {
+function FilmCardReviews({reviews}: Props): JSX.Element {
   const columnOne: Review[] = [];
   const columnTwo: Review[] = [];
 

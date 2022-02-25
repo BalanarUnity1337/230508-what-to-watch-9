@@ -1,10 +1,10 @@
 import {Review} from '../../types/review';
 
-type ReviewCardProps = {
+type Props = {
   review: Review
 }
 
-function ReviewCard({review}: ReviewCardProps): JSX.Element {
+function ReviewCard({review}: Props): JSX.Element {
   return (
     <div className="review">
       <blockquote className="review__quote">

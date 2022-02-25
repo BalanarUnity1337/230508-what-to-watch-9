@@ -1,14 +1,14 @@
 import {useNavigate} from 'react-router-dom';
 import {IconAdd, IconInList, IconPlayS} from '../icons';
 import {Film} from '../../types/film';
-import {createAddReviewRoute} from '../../shared/lib/routing';
+import {createAddReviewRoute, createPlayerRoute} from '../../shared/lib/routing';
 
-type FilmCardDescriptionProps = {
+type Props = {
   film: Film
   withReviewButton?: boolean
 }
 
-function FilmCardDescription({film, withReviewButton}: FilmCardDescriptionProps): JSX.Element {
+function FilmCardDescription({film, withReviewButton}: Props): JSX.Element {
   const navigate = useNavigate();
 
   return (
@@ -23,7 +23,7 @@ function FilmCardDescription({film, withReviewButton}: FilmCardDescriptionProps)
       </p>
 
       <div className="film-card__buttons">
-        <button className="btn btn--play film-card__button">
+        <button className="btn btn--play film-card__button" onClick={() => navigate(createPlayerRoute(film.id))}>
           <IconPlayS />
 
           <span>Play</span>

@@ -1,11 +1,11 @@
 import {ChangeEvent, Fragment} from 'react';
 
-type RatingScaleProps = {
+type Props = {
   rating: number
   onRatingChange: (rating: number) => void
 }
 
-function RatingScale({rating, onRatingChange}: RatingScaleProps): JSX.Element {
+function RatingScale({rating, onRatingChange}: Props): JSX.Element {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onRatingChange(Number(e.target.value));
   };

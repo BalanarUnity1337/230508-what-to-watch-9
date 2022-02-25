@@ -1,15 +1,39 @@
-// TODO: После роутинга добавить пропсы
-function Breadcrumbs(): JSX.Element {
+import {Link} from 'react-router-dom';
+
+export interface Breadcrumb {
+  path: string
+  name: string
+  current?: boolean
+}
+
+type Props = {
+  items: Breadcrumb[]
+}
+
+function Breadcrumbs({items}: Props): JSX.Element {
   return (
     <nav className="breadcrumbs">
       <ul className="breadcrumbs__list">
-        <li className="breadcrumbs__item">
-          <a href="#" className="breadcrumbs__link">The Grand Budapest Hotel</a>
-        </li>
+        {
+          items.map((breadcrumb) => (
+            <li key={breadcrumb.name} className="breadcrumbs__item">
+              {
+                breadcrumb.current
+                  ? (
+                    <span className="breadcrumbs__link">
+                      {breadcrumb.name}
+                    </span>
+                  )
+                  : (
+                    <Link className="breadcrumbs__link" to={breadcrumb.path}>
+                      {breadcrumb.name}
+                    </Link>
+                  )
+              }
 
-        <li className="breadcrumbs__item">
-          <a className="breadcrumbs__link">Add review</a>
-        </li>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   );

@@ -2,11 +2,11 @@ import {PropsWithChildren} from 'react';
 import FilmCardDescription from '../film-card-description/film-card-description';
 import {Film} from '../../types/film';
 
-type FilmCardPromoProps = PropsWithChildren<{
+type Props = PropsWithChildren<{
   film: Film
 }>
 
-function FilmCardPromo({film, children}: FilmCardPromoProps): JSX.Element {
+function FilmCardPromo({film, children}: Props): JSX.Element {
   return (
     <section className="film-card">
       <div className="film-card__bg">

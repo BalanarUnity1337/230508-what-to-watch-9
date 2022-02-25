@@ -2,18 +2,18 @@ import {useState} from 'react';
 import FilmCard from '../film-card/film-card';
 import {Film} from '../../types/film';
 
-type FilmCatalogProps = {
+type Props = {
   films: Film[]
 }
 
-function FilmCatalog({films}: FilmCatalogProps): JSX.Element {
+function FilmCatalog({films}: Props): JSX.Element {
   const [, setActiveFilm] = useState<Film | null>(null);
 
-  const mouseOverHandler = (film: Film) => {
+  const handleFilmCardMouseOver = (film: Film) => {
     setActiveFilm(film);
   };
 
-  const mouseOutHandler = () => {
+  const handleFilmCardMouseOut = () => {
     setActiveFilm(null);
   };
 
@@ -23,8 +23,8 @@ function FilmCatalog({films}: FilmCatalogProps): JSX.Element {
         <FilmCard
           key={film.id}
           film={film}
-          onMouseOver={mouseOverHandler}
-          onMouseOut={mouseOutHandler}
+          onMouseOver={handleFilmCardMouseOver}
+          onMouseOut={handleFilmCardMouseOut}
         />))}
     </div>
   );

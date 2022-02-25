@@ -1,28 +1,26 @@
 import FilmRating from '../film-rating/film-rating';
+import {Film} from '../../types/film';
 
-function FilmCardOverview(): JSX.Element {
+type Props = {
+  film: Film
+}
+
+function FilmCardOverview({film}: Props): JSX.Element {
   return (
     <>
-      <FilmRating rating={8.9} scoresCount={240} />
+      <FilmRating rating={film.rating} scoresCount={film.scoresCount} />
 
       <div className="film-card__text">
         <p>
-          In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge
-          Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege
-        </p>
-
-        <p>
-          Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying the
-          sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously,
-          Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
+          {film.description}
         </p>
 
         <p className="film-card__director">
-          <strong>Director: Wes Anderson</strong>
+          <strong>Director: {film.director}</strong>
         </p>
 
         <p className="film-card__starring">
-          <strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong>
+          <strong>Starring: {film.starring.join(', ')}</strong>
         </p>
       </div>
     </>

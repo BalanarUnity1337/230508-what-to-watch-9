@@ -1,11 +1,12 @@
 import {Link} from 'react-router-dom';
-import {AppRoute, mergeClasses} from '../../shared/lib';
+import {AppRoute} from '../../constants';
+import {mergeClasses} from '../../shared/lib';
 
-type LogoProps = {
+type Props = {
   light?: boolean
 }
 
-function Logo({light}: LogoProps): JSX.Element {
+function Logo({light}: Props): JSX.Element {
   return (
     <div className="logo">
       <Link

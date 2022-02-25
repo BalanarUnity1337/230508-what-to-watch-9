@@ -1,26 +1,18 @@
 import {PropsWithChildren} from 'react';
-import {Link} from 'react-router-dom';
 import FilmCardOverview from '../film-card-overview/film-card-overview';
 import FilmCardDetails from '../film-card-details/film-card-details';
 import FilmCardReviews from '../film-card-reviews/film-card-reviews';
 import FilmCardDescription from '../film-card-description/film-card-description';
 import {Film} from '../../types/film';
 import {Review} from '../../types/review';
+import FilmTabs from '../film-tabs/film-tabs';
 
-type FilmCardFullProps = PropsWithChildren<{
+type Props = PropsWithChildren<{
   film: Film
   reviews: Review[]
-  // FIXME: Временный пропс для тестирования компонента
-  activeTab: 'overview' | 'details' | 'reviews'
 }>
 
-function FilmCardFull({film, reviews, children, activeTab}: FilmCardFullProps): JSX.Element {
-  const tabs: Record<FilmCardFullProps['activeTab'], JSX.Element> = {
-    overview: <FilmCardOverview />,
-    details: <FilmCardDetails />,
-    reviews: <FilmCardReviews reviews={reviews} />,
-  };
-
+function FilmCardFull({film, reviews, children}: Props): JSX.Element {
   return (
     <section
       className="film-card film-card--full"
@@ -49,29 +41,24 @@ function FilmCardFull({film, reviews, children, activeTab}: FilmCardFullProps): 
           </div>
 
           <div className="film-card__desc">
-            <nav className="film-nav film-card__nav">
-              <ul className="film-nav__list">
-                <li className={`film-nav__item  ${activeTab === 'overview' ? 'film-nav__item--active' : ''}`}>
-                  <Link className="film-nav__link" to="#overview">
-                    Overview
-                  </Link>
-                </li>
-
-                <li className={`film-nav__item  ${activeTab === 'details' ? 'film-nav__item--active' : ''}`}>
-                  <Link className="film-nav__link" to="#details">
-                    Details
-                  </Link>
-                </li>
-
-                <li className={`film-nav__item  ${activeTab === 'reviews' ? 'film-nav__item--active' : ''}`}>
-                  <Link className="film-nav__link" to="#reviews">
-                    Reviews
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-
-            {tabs[activeTab]}
+            <FilmTabs tabs={[
+              {
+                name: 'overview',
+                label: 'Overview',
+                content: <FilmCardOverview film={film} />,
+              },
+              {
+                name: 'details',
+                label: 'Details',
+                content: <FilmCardDetails film={film} />,
+              },
+              {
+                name: 'reviews',
+                label: 'Reviews',
+                content: <FilmCardReviews reviews={reviews} />,
+              },
+            ]}
+            />
           </div>
         </div>
       </div>

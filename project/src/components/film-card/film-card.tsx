@@ -3,13 +3,13 @@ import {Link, useNavigate} from 'react-router-dom';
 import {Film} from '../../types/film';
 import {createFilmRoute} from '../../shared/lib/routing';
 
-type FilmCardProps = {
+type Props = {
   film: Film
   onMouseOver: (film: Film) => void
   onMouseOut: () => void
 }
 
-function FilmCard({film, onMouseOver, onMouseOut}: FilmCardProps): JSX.Element {
+function FilmCard({film, onMouseOver, onMouseOut}: Props): JSX.Element {
   const navigate = useNavigate();
 
   return (

@@ -1,14 +1,16 @@
 import {useState} from 'react';
-import {Navigate, useParams} from 'react-router-dom';
+import {Navigate, useParams, useNavigate} from 'react-router-dom';
 import {IconFullScreen, IconPause, IconPlayS} from '../../components/icons';
 import {Film} from '../../types/film';
 
-type PlayerPageProps = {
+type Props = {
   films: Film[]
 }
 
-function PlayerPage({films} : PlayerPageProps): JSX.Element {
+function PlayerPage({films} : Props): JSX.Element {
   const [isPaused, setIsPaused] = useState(false);
+
+  const navigate = useNavigate();
 
   const params = useParams();
   const film: Film | null = films.find((item) => item.id === Number(params.id)) || null;
@@ -21,7 +23,13 @@ function PlayerPage({films} : PlayerPageProps): JSX.Element {
     <div className="player">
       <video className="player__video" src={film.videoLink} poster={film.backgroundImage} />
 
-      <button className="player__exit" type="button">Exit</button>
+      <button
+        className="player__exit"
+        type="button"
+        onClick={() => navigate(-1)}
+      >
+        Exit
+      </button>
 
       <div className="player__controls">
         <div className="player__controls-row">

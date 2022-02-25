@@ -1,25 +1,24 @@
+import {useSearchParams} from 'react-router-dom';
 import GenresCatalogItem from '../genres-catalog-item/genres-catalog-item';
+import {Genre} from '../../constants';
 
 function GenresCatalog(): JSX.Element {
-  const genres: string[] = [
-    'Comedies',
-    'Crime',
-    'Documentary',
-    'Dramas',
-    'Horror',
-    'Kids & Family',
-    'Romance',
-    'Sci-Fi',
-    'Thrillers',
-  ];
-
-  const genresItems: JSX.Element[] = genres.map((genre) => <GenresCatalogItem name={genre} key={genre} />);
+  const [searchParams] = useSearchParams();
+  const currentGenre: keyof typeof Genre = searchParams.get('genre') as keyof typeof Genre || 'AllGenres';
 
   return (
     <ul className="catalog__genres-list">
-      <GenresCatalogItem name="All genres" active />
-
-      {genresItems}
+      {
+        Object.entries(Genre).map(([name, label]) =>
+          (
+            <GenresCatalogItem
+              key={name}
+              name={name}
+              label={label}
+              active={name === currentGenre}
+            />
+          ))
+      }
     </ul>
   );
 }

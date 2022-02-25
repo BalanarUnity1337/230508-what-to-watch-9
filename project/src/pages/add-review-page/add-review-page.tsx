@@ -3,12 +3,13 @@ import AddReviewForm from '../../components/add-review-form/add-review-form';
 import Header from '../../components/header/header';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import {Film} from '../../types/film';
+import {createAddReviewRoute, createFilmRoute} from '../../shared/lib/routing';
 
-type AddReviewPageProps = {
+type Props = {
   films: Film[]
 }
 
-function AddReviewPage({films}: AddReviewPageProps): JSX.Element {
+function AddReviewPage({films}: Props): JSX.Element {
   const params = useParams();
   const film: Film | null = films.find((item) => item.id === Number(params.id)) || null;
 
@@ -31,7 +32,19 @@ function AddReviewPage({films}: AddReviewPageProps): JSX.Element {
         <h1 className="visually-hidden">WTW</h1>
 
         <Header>
-          <Breadcrumbs />
+          <Breadcrumbs
+            items={[
+              {
+                path: createFilmRoute(film.id),
+                name: film.name,
+              },
+              {
+                path: createAddReviewRoute(film.id),
+                name: 'Add review',
+                current: true,
+              },
+            ]}
+          />
         </Header>
 
         <div className="film-card__poster film-card__poster--small">
