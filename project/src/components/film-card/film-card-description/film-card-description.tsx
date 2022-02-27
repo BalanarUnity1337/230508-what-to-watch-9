@@ -1,7 +1,7 @@
 import {useNavigate} from 'react-router-dom';
-import {IconAdd, IconInList, IconPlayS} from '../icons';
-import {Film} from '../../types/film';
-import {createAddReviewRoute, createPlayerRoute} from '../../shared/lib/routing';
+import {IconAdd, IconInList, IconPlayS} from '../../icons';
+import {Film} from '../../../types/film';
+import {createAddReviewRoute, createPlayerRoute} from '../../../shared/lib/routing';
 
 type Props = {
   film: Film

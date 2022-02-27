@@ -2,7 +2,7 @@ import {useParams, Navigate} from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import FilmCatalog from '../../components/film-catalog/film-catalog';
 import Header from '../../components/header/header';
-import FilmCardFull from '../../components/film-card-full/film-card-full';
+import FilmCardFull from '../../components/film-card/film-card-full/film-card-full';
 import {Film} from '../../types/film';
 import {Review} from '../../types/review';
 

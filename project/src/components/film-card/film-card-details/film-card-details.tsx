@@ -1,5 +1,5 @@
 import {Fragment} from 'react';
-import {Film} from '../../types/film';
+import {Film} from '../../../types/film';
 
 type Props = {
   film: Film

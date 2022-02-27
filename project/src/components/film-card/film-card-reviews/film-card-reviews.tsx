@@ -1,5 +1,5 @@
-import ReviewCard from '../review-card/review-card';
-import {Review} from '../../types/review';
+import ReviewCard from '../../review-card/review-card';
+import {Review} from '../../../types/review';
 
 type Props = {
   reviews: Review[]

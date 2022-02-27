@@ -1,6 +1,6 @@
 import {PropsWithChildren} from 'react';
 import FilmCardDescription from '../film-card-description/film-card-description';
-import {Film} from '../../types/film';
+import {Film} from '../../../types/film';
 
 type Props = PropsWithChildren<{
   film: Film

@@ -3,9 +3,9 @@ import FilmCardOverview from '../film-card-overview/film-card-overview';
 import FilmCardDetails from '../film-card-details/film-card-details';
 import FilmCardReviews from '../film-card-reviews/film-card-reviews';
 import FilmCardDescription from '../film-card-description/film-card-description';
-import {Film} from '../../types/film';
-import {Review} from '../../types/review';
-import FilmTabs from '../film-tabs/film-tabs';
+import {Film} from '../../../types/film';
+import {Review} from '../../../types/review';
+import FilmTabs from '../../film-tabs/film-tabs';
 
 type Props = PropsWithChildren<{
   film: Film

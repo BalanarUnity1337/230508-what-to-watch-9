@@ -1,5 +1,5 @@
 import Footer from '../../components/footer/footer';
-import FilmCardPromo from '../../components/film-card-promo/film-card-promo';
+import FilmCardPromo from '../../components/film-card/film-card-promo/film-card-promo';
 import Header from '../../components/header/header';
 import GenresCatalog from '../../components/genres-catalog/genres-catalog';
 import FilmCatalog from '../../components/film-catalog/film-catalog';
