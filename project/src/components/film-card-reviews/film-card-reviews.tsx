@@ -1,4 +1,4 @@
-import ReviewCard from '../review/reviewCard';
+import ReviewCard from '../review-card/review-card';
 import {Review} from '../../types/review';
 
 type Props = {
@@ -19,7 +19,6 @@ function FilmCardReviews({reviews}: Props): JSX.Element {
 
   return (
     <div className="film-card__reviews film-card__row">
-
       <div className="film-card__reviews-col">
         {columnOne.map((review) => <ReviewCard review={review} key={review.id} />)}
       </div>

@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export interface Breadcrumb {
   path: string
@@ -25,9 +25,9 @@ function Breadcrumbs({items}: Props): JSX.Element {
                     </span>
                   )
                   : (
-                    <Link className="breadcrumbs__link" to={breadcrumb.path}>
+                    <NavLink className="breadcrumbs__link" to={breadcrumb.path} end>
                       {breadcrumb.name}
-                    </Link>
+                    </NavLink>
                   )
               }
 

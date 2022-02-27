@@ -2,9 +2,11 @@ import {useSearchParams} from 'react-router-dom';
 import GenresCatalogItem from '../genres-catalog-item/genres-catalog-item';
 import {Genre} from '../../constants';
 
+type GenreName = keyof typeof Genre
+
 function GenresCatalog(): JSX.Element {
   const [searchParams] = useSearchParams();
-  const currentGenre: keyof typeof Genre = searchParams.get('genre') as keyof typeof Genre || 'AllGenres';
+  const currentGenre: GenreName = searchParams.get('genre') as GenreName || 'AllGenres';
 
   return (
     <ul className="catalog__genres-list">

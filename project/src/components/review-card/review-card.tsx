@@ -5,17 +5,24 @@ type Props = {
 }
 
 function ReviewCard({review}: Props): JSX.Element {
+  const {
+    comment,
+    user,
+    date,
+    rating,
+  } = review;
+
   return (
     <div className="review">
       <blockquote className="review__quote">
         <p className="review__text">
-          {review.comment}
+          {comment}
         </p>
 
         <footer className="review__details">
-          <cite className="review__author">{review.user.name}</cite>
-          <time className="review__date" dateTime={review.date}>
-            {new Date(review.date).toLocaleDateString('en', {
+          <cite className="review__author">{user.name}</cite>
+          <time className="review__date" dateTime={date}>
+            {new Date(date).toLocaleDateString('en', {
               day: '2-digit',
               month: 'long',
               year: 'numeric',
@@ -24,7 +31,7 @@ function ReviewCard({review}: Props): JSX.Element {
         </footer>
       </blockquote>
 
-      <div className="review__rating">{review.rating.toFixed(1)}</div>
+      <div className="review__rating">{rating.toFixed(1)}</div>
     </div>
   );
 }
