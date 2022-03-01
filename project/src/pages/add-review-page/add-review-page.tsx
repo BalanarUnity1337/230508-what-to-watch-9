@@ -41,7 +41,6 @@ function AddReviewPage({films}: Props): JSX.Element {
               {
                 path: createAddReviewRoute(film.id),
                 name: 'Add review',
-                current: true,
               },
             ]}
           />
