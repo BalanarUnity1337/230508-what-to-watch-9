@@ -15,7 +15,7 @@ type Props = {
 function FilmTabs({tabs}: Props): JSX.Element {
   const location = useLocation();
   const currentTabName = location.hash ? location.hash.slice(1) : tabs[0].name;
-  const currentTab = tabs.find((tab) => tab.name === currentTabName) as FilmTab;
+  const currentTab = tabs.find((tab) => tab.name === currentTabName);
 
   return (
     <>
@@ -38,7 +38,7 @@ function FilmTabs({tabs}: Props): JSX.Element {
         </ul>
       </nav>
 
-      {currentTab.content}
+      {currentTab!.content}
     </>
   );
 }
