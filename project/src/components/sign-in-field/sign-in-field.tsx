@@ -1,7 +1,7 @@
 import {HTMLInputTypeAttribute} from 'react';
 import {mergeClasses} from '../../shared/lib';
 
-type SignInFieldProps = {
+type Props = {
   id: string
   name: string
   label: string
@@ -10,7 +10,7 @@ type SignInFieldProps = {
   error?: boolean
 }
 
-function SignInField({id, name, label, placeholder, type, error}: SignInFieldProps): JSX.Element {
+function SignInField({id, name, label, placeholder, type, error}: Props): JSX.Element {
   return (
     <div
       className={mergeClasses({

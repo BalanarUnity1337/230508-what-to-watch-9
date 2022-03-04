@@ -1,8 +1,13 @@
 import Header from '../../components/header/header';
 import FilmCatalog from '../../components/film-catalog/film-catalog';
 import Footer from '../../components/footer/footer';
+import {Film} from '../../types/film';
 
-function MyListPage(): JSX.Element {
+type Props = {
+  films: Film[]
+}
+
+function MyListPage({films}: Props): JSX.Element {
   return (
     <div className="user-page">
       <Header classes="user-page__head">
@@ -12,7 +17,7 @@ function MyListPage(): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmCatalog films={[...new Array(9).keys()]} />
+        <FilmCatalog films={films} />
       </section>
 
       <Footer />

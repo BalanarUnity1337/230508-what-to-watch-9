@@ -1,13 +1,35 @@
+import {useState} from 'react';
+import {Navigate, useParams, useNavigate} from 'react-router-dom';
 import {IconFullScreen, IconPause, IconPlayS} from '../../components/icons';
+import {Film} from '../../types/film';
 
-function PlayerPage(): JSX.Element {
-  const isPaused = false;
+type Props = {
+  films: Film[]
+}
+
+function PlayerPage({films} : Props): JSX.Element {
+  const [isPaused, setIsPaused] = useState(false);
+
+  const navigate = useNavigate();
+
+  const params = useParams();
+  const film: Film | null = films.find((item) => item.id === Number(params.id)) || null;
+
+  if (!film) {
+    return (<Navigate to="/404" />);
+  }
 
   return (
     <div className="player">
-      <video className="player__video" src="#" poster="img/player-poster.jpg" />
+      <video className="player__video" src={film.videoLink} poster={film.backgroundImage} />
 
-      <button className="player__exit" type="button">Exit</button>
+      <button
+        className="player__exit"
+        type="button"
+        onClick={() => navigate(-1)}
+      >
+        Exit
+      </button>
 
       <div className="player__controls">
         <div className="player__controls-row">
@@ -28,13 +50,17 @@ function PlayerPage(): JSX.Element {
         </div>
 
         <div className="player__controls-row">
-          <button className="player__play" type="button">
+          <button
+            className="player__play"
+            type="button"
+            onClick={() => setIsPaused((prevState) => !prevState)}
+          >
             {isPaused ? <IconPlayS /> : <IconPause />}
 
             <span>{isPaused ? 'Play' : 'Pause'}</span>
           </button>
 
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{film.name}</div>
 
           <button className="player__full-screen" type="button">
             <IconFullScreen />

@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppRoute} from '../../shared/lib';
+import {AppRoute} from '../../constants';
 
 function HeaderUserBlock(): JSX.Element {
   const isLoggedIn = true;

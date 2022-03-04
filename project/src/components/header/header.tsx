@@ -3,11 +3,11 @@ import Logo from '../logo/logo';
 import HeaderUserBlock from '../header-user-block/header-user-block';
 import {mergeClasses} from '../../shared/lib';
 
-type HeaderProps = PropsWithChildren<{
+type Props = PropsWithChildren<{
   classes?: string
 }>
 
-function Header({classes, children}: HeaderProps): JSX.Element {
+function Header({classes, children}: Props): JSX.Element {
   const isLoggedIn = true;
 
   return (

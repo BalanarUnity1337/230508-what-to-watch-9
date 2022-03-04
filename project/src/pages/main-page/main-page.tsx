@@ -1,18 +1,19 @@
 import Footer from '../../components/footer/footer';
-import FilmCardPromo from '../../components/film-card-promo/film-card-promo';
+import FilmCardPromo from '../../components/film-card/film-card-promo/film-card-promo';
 import Header from '../../components/header/header';
 import GenresCatalog from '../../components/genres-catalog/genres-catalog';
 import FilmCatalog from '../../components/film-catalog/film-catalog';
-import {PromoFilm} from '../../types/film';
+import {Film} from '../../types/film';
 
-type MainPageProps = {
-  promoFilm: PromoFilm
+type Props = {
+  promoFilm: Film
+  films: Film[]
 }
 
-function MainPage({promoFilm}: MainPageProps): JSX.Element {
+function MainPage({promoFilm, films}: Props): JSX.Element {
   return (
     <>
-      <FilmCardPromo {...promoFilm}>
+      <FilmCardPromo film={promoFilm}>
         <Header classes="film-card__head" />
       </FilmCardPromo>
 
@@ -22,7 +23,7 @@ function MainPage({promoFilm}: MainPageProps): JSX.Element {
 
           <GenresCatalog/>
 
-          <FilmCatalog films={[...new Array(20).keys()]}/>
+          <FilmCatalog films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
